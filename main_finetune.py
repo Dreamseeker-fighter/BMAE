@@ -26,7 +26,6 @@ from util.datasets import build_dataset
 from util.pos_embed import interpolate_pos_embed
 from util.misc import NativeScalerWithGradNormCount as NativeScaler
 import models_vit
-from preprocess.datasets.finetune_dataset import FunetuneBatteryData
 from preprocess.datasets.finetune_RUL_dataset import FinetuneRULDataset
 from finetune import train_one_epoch, evaluate, inference_collection
 from finetune import collection
