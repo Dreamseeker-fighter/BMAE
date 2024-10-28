@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Time : 2022/06/01 10:44
-# @Author : zengjunjie
+# @Author : zengjunjie,jianguochen
 # @Email : zengjunjie@thinkenergy.net.cn
 # @File : base.py
 # @Project : anomaly_detection
