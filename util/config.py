@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-'''
-@author: zengjunjie
-@contact: zengjunjie@thinkenergy.tech
-@software: Pycharm
-@application:
-@file: config.py
-@time: 20/05/22 14:22
-@desc:
-'''
+
 import sys
 sys.path.insert(0, '../..')
 sys.path = list(set(sys.path))
