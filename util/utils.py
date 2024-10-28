@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time : 2022/07/05 10:44
-# @Author : huangshaobo
-# @Email : huangshaobo@thinkenergy.net.cn
-# @File : utils.py
-# @Project : anomaly_detection
+
 import json
 import os
 import shutil
