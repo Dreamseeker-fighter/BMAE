@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-'''
-@author: zengjunjie
-@contact: zengjunjie@thinkenergy.tech
-@software: Pycharm
-@application:
-@file: pre_utils.py
-@time: 20/05/22 10:19
-@desc:
-'''
+
 
 from collections import OrderedDict
 import random
