@@ -1,15 +1,6 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-'''
-@author: zengjunjie
-@contact: zengjunjie@thinkenergy.tech
-@software: Pycharm
-@application:
-@file: finetune.py
-@time: 29/12/22 14:48
-@desc:
-'''
 
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 # All rights reserved.
@@ -49,18 +40,7 @@ import util.misc as misc
 import util.lr_sched as lr_sched
 
 ###RUL 的最大最小值，对数据进行归一化
-# min_score= 1
-# max_score= 800
-# mean= 459.96733671903036
-# std= 375.4825391841353
-## 单一数据集调试
-# mean= 405.03
-# std=266.12
 
-
-# ##五个数据集调试
-# std=269.6887571706117
-# mean= 420.3365616804715
 
 std=484.1995139902539
 mean=786.6058135072909
