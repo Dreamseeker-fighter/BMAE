@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-'''
-@author: zengjunjie
-@contact: zengjunjie@thinkenergy.tech
-@software: Pycharm
-@application:
-@file: logger_config.py
-@time: 21/06/22 15:57
-@desc:
-'''
+
 import os
 from loguru import logger
 from cmreslogging.handlers import CMRESHandler
