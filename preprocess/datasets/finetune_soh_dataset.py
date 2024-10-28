@@ -1,9 +1,6 @@
 #!/usr/bin/env python  
 # -*- coding:utf-8 -*-  
 """
-@author: xionggengang
-@file: finetune_soh_dataset.py
-@time: 2023/3/13 17:33
 """
 
 import os
