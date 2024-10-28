@@ -163,7 +163,7 @@ def get_args_parser():
                         help='start epoch')
 
 
-    parser.add_argument('--finetune', default='/home/chenjianguo/mae_soh_estimation/pretrain/2024-07-02-17-23-54_basep1/model/checkpoint-best.pth',
+    parser.add_argument('--finetune', default='base pretrained model.pth',
                         help='finetune from checkpoint')
 
     # Dataset parameters
@@ -171,92 +171,23 @@ def get_args_parser():
     
     
     parser.add_argument('--data_path',
-                        default='/home/chenjianguo/batterydata/fintune_data/timetest/timetestdata/',
+                        default='datapath',
                         type=str,
                         help='dataset path')
 
     parser.add_argument('--label_path',
-                        default='/home/chenjianguo/batterydata/fintune_data/timetest/timetestlabel.csv',
+                        default='labelpath',
                         type=str,
                         help='训练集标签路径')
     # ##NCA Dateset
     NAME='timetest'
     
-     
-    # parser.add_argument('--data_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/124-TJ_Dataset_1_NCA_battery/test/',
-    #                     type=str,
-    #                     help='dataset path')
-
-    # parser.add_argument('--label_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/124-TJ_Dataset_1_NCA_battery/test_label/NCA_label.csv',
-    #                     type=str,
-    #                     help='训练集标签路径')
-    
-    ## NCM dataset
-    
-    # parser.add_argument('--data_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/125-TJ_Dataset_2_NCM_battery/test',
-    #                     type=str,
-    #                     help='dataset path')
-    # parser.add_argument('--label_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/125-TJ_Dataset_2_NCM_battery/test_label/NCM_label.csv',
-    #                     type=str,
-    #                     help='训练集标签路径')
-    
-    ##   NCMNCA
-    
-    # parser.add_argument('--data_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/126-TJ_Dataset_3_NCM_NCA_battery/test',
-    #                     type=str,
-    #                     help='dataset path')
-    # parser.add_argument('--label_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/126-TJ_Dataset_3_NCM_NCA_battery/test_label/NCMNCA_label.csv',
-    #                     type=str,
-    #                     help='训练集标签路径')
-    
-    #NEdataset
-    
-    # parser.add_argument('--data_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/104-Severson_NEall/test',
-    #                     type=str,
-    #                     help='dataset path')
-    # parser.add_argument('--label_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/104-Severson_NEall/test_label/NE_label.csv',
-    #                     type=str,
-    #                     help='训练集标签路径')
-    
-    ##TS dataset
-    
-    # parser.add_argument('--data_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/103-Tshall/test',
-    #                     type=str,
-    #                     help='dataset path')
-    # parser.add_argument('--label_path',
-    #                     default='/home/chenjianguo/batterydata/propressdatsets/103-Tshall/test_label/Tshall_label.csv',
-    #                     type=str,
-    #                     help='训练集标签路径')
-    
-    ##five dataset
-    
-    # parser.add_argument('--data_path',
-    #                     default='/home/chenjianguo/batterydata/fintune_data/test_all/testdata',
-    #                     type=str,
-    #                     help='dataset path')
-    # parser.add_argument('--label_path',
-    #                     default='/home/chenjianguo/batterydata/fintune_data/test_all/testlabel/five_dataset_label.csv',
-    #                     type=str,
-    #                     help='训练集标签路径')
    
     parser.add_argument('--data_name',
                         default='NE',
                         type=str,
                         help='数据集名称')
 
-    parser.add_argument('--test_label',
-                        default='/home/chenjianguo/batterydata/Dataset_1_NCA_battery/Dataset_1_50slide/test_label/NCA_label_fintune_test.csv',
-                        type=str,
-                        help='验证集标签路径')  ##查看一下是否用到
 
     now_time = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')##finetune_CQC
     
@@ -269,9 +200,6 @@ def get_args_parser():
 
     parser.add_argument("--negative_sample_expanded", default=0, type=int,
                         help='负样本增强倍数')
-
-    parser.add_argument("--segment_label", default='/home/chenjianguo/batterydata/Dataset_1_NCA_battery/Dataset_1_50slide/test_label/NCA_label.csv', type=str,
-                        help='负样本增强倍数')  #未用到
 
     parser.add_argument("--reinit_last_block", default=2, type=int, help='是否强制初始化最后几层'
 
@@ -791,32 +719,6 @@ def record(train_mongo_res, test_mongo_res, epoch,
         with open(os.path.join(args.output_dir, "log.txt"), mode="a", encoding="utf-8") as f:
             f.write(json.dumps(log_stats) + "\n")
 
-
-# if __name__ == '__main__':
-#     args = get_args_parser()
-#     args = args.parse_args()
-#     if args.output_dir:
-#         Path(args.output_dir).mkdir(parents=True, exist_ok=True)
-#
-#     data_list = get_data_list(args)
-#     files= split_train_test_vin(args, data_list) # train_file,val_file,test_file
-#     # print(len(data_list))
-#     # print(len(files[0]))
-#     best_epoch, n_parameters = main(args,files)
-#
-#     finetune_model = os.path.join(
-#         args.output_dir, f"checkpoint-{best_epoch}.pth")
-#     train_stats, train_res, train_patches_res, train_cars_res = evaluate_test(args, finetune_model,files[0], args.label_path)
-#     validate_stats, validate_res, validate_patches_res, validate_cars_res = evaluate_test(args, finetune_model,files[1],
-#                                                                                           args.label_path)
-#     test_stats, test_res, test_patches_res, test_cars_res = evaluate_test(args, finetune_model,files[2], args.label_path)
-#
-#     inerence_record(
-#         args, train_res, validate_res, test_res,
-#         train_patches_res, validate_patches_res, test_patches_res,
-#         train_cars_res, validate_cars_res, test_cars_res,
-#         n_parameters, best_epoch, finetune_model
-#     )
 if __name__ == '__main__':
 
     args = get_args_parser()
