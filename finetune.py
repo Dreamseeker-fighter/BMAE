@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 '''
-@author: zengjunjie
+@author: zengjunjie,jianguocheng
 @contact: zengjunjie@thinkenergy.tech
 @software: Pycharm
 @application:
