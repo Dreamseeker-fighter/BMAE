@@ -1,6 +1,9 @@
 #!/usr/bin/env python  
 # -*- coding:utf-8 -*-  
 """
+@author: xionggengang
+@file: finetune_soh_dataset.py
+@time: 2023/3/13 17:33
 """
 
 import os
@@ -13,7 +16,7 @@ from collections import OrderedDict
 from decimal import Decimal
 from .normalizer import Normalizer, Normalizer2
 import json
-class FinetuneSohDataset:
+class FinetuneRULDataset:
     """
     电池滑窗数据类
     """
